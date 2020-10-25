@@ -35,6 +35,10 @@ export class EmployeeListComponent implements OnInit {
         error => console.log(error));
   }
 
+  updateEmployee(id: number){
+    this.router.navigate(['update', id]);
+  }
+
   employeeDetails(id: number){
     this.router.navigate(['details', id]);
   }
