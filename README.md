@@ -1,5 +1,6 @@
 ﻿# Taller: entorno desarrollo Spring Boot + Angular + PostgreSQL sobre Docker/Kubernetes
-**Repositorio para el taller formativo a Avansis sobre desarrollo en entornos Docker/Kubernetes**
+**Repositorio para el taller formativo a Avansis sobre desarrollo en entornos Docker/Kubernetes.**
+
 El guión del taller será el siguiente:
 1.  **Revisión instalaciones realizadas** (5 min - _No se van a realizar instalaciones_)
 2.  **Repositorio Git ejemplos / Presentación App ejemplo: Front, Back y BBDD** (15m)
