@@ -5,25 +5,33 @@
 Para ello empleamos el fichero docker-compose.yml que nos permite ejecutar varios cotenedores a la vez, vincular dichos contenedores entre ellos, etc.
 
 -------------------------------------------------------------------------------
-COMANDOS DOCKER-COMPOSE
+2. Comandos habituales Docker Compose
 -------------------------------------------------------------------------------
 
-LEVANTA/CREA TODOS LOS RECURSOS DEFINIDOS EN EL FICHERO docker-compose.yml
+Levanta/Crea todos los recursos definidos en el fichero docker-compose.yml:
 
 	docker-compose up
 
-DESTRUYE TODOS LOS RECURSOS CREADOS POR EL COMANDO ANTERIOR
+Destruye todos los recursos creados con el comando anterior:
 
 	docker-compose down
 
-PARA (PAUSA) TODOS LOS RECURSOS Y CONTENEDORES
+Para (pausa) todos los recursos y contenedores:
 
 	docker-compose stop
 
-INICIA TODOS LOS RECURSOS Y CONTENEDORES PAUSADOS
+Inicia todos los recursos y contenedores pausados:
 
 	docker-compose start
 
-RECREA LOS RECURSOS SI SE HA ACTUALIZADO EL docker-compose.yml
+Recrea los recursos si se ha actualizado el docker-compose.yml
 
 	docker-compose up --build
+	
+Si queremos levantar en segundo plano el docker-compose:
+
+	docker-compose up -d
+	
+Si queremos mostrar los logs:
+
+	docker-compose logs --follow
