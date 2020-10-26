@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: C:\ProgramData\chocolatey\lib\kubernetes-kompose\tools\kompose.exe
+      convert -f ../docker-compose.yml
+    kompose.version: 1.21.0 (992df58d8)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: taller-back
+  name: taller-back
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: taller-back
+  strategy: {}
+  template:
+    metadata:
+      annotations:
+        kompose.cmd: C:\ProgramData\chocolatey\lib\kubernetes-kompose\tools\kompose.exe
+          convert -f ../docker-compose.yml
+        kompose.version: 1.21.0 (992df58d8)
+      creationTimestamp: null
+      labels:
+        io.kompose.network/red-taller: "true"
+        io.kompose.service: taller-back
+    spec:
+      containers:
+      - image: luismiguelmartin/taller-back
+        imagePullPolicy: ""
+        name: taller-back
+        ports:
+        - containerPort: 8443
+        resources: {}
+      restartPolicy: Always
+      serviceAccountName: ""
+      volumes: null
+status: {}

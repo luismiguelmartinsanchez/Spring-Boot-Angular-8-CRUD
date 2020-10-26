@@ -1,0 +1,9 @@
+-------------------------------------------------------------------------------
+1. Generaremos los manifiestos .yml a partir de Kompose
+-------------------------------------------------------------------------------
+
+Kompose es una herramienta que comvierte un docker-compose.yml en los ficheros necesarios para desplegar los servicios en kubernetes.
+
+Desde la carpeta kubernetes ejecutaremos:
+
+	kompose convert -f ../docker-compose.yml
