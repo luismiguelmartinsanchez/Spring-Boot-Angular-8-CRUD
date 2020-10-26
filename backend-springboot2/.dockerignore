@@ -1,0 +1,12 @@
+# Ignoramos todos los archios y directorios
+**
+# Permitimos el .jar
+!/target/*.jar
+
+.git
+.gradle
+.idea
+
+*.pdf
+*.zip
+*.sql
