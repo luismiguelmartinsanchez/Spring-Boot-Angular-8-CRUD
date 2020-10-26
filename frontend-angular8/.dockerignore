@@ -1,0 +1,10 @@
+node_modules/
+e2e/
+src/
+.git/
+.vscode/
+ 
+.gitignore
+.dockerignore
+Dockerfile
+npm-debug.log
