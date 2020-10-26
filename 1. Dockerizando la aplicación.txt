@@ -18,6 +18,8 @@ Con esto tenemos ya paquetizados tanto el frontend como el backend para poder pa
 2. Generamos la imagen del Frontend
 -------------------------------------------------------------------------------
 
+Nos ubicamos en el directorio del front (donde está ubicado en Dockerfile):
+
 docker build -t taller-front .
 
 Si deseamos hacerlo sin caché:
@@ -29,3 +31,15 @@ Levantamos el contenedor (y si el backend está corriendo debería conectarse si
 docker run --rm -d --name TallerFront -p 80:80 taller-front
 
 docker run --rm -d --name TallerFrontSSL -p 443:443 taller-front
+
+-------------------------------------------------------------------------------
+3. Generamos la imagen del Backend
+-------------------------------------------------------------------------------
+
+docker build -t taller-back . --no-cache
+
+Levantamos el contenedor:
+
+docker run --rm -d --name TallerBack -p 8080:8080 taller-back
+
+docker run --rm -d --name TallerBackSSL -p 8443:8443 taller-back
