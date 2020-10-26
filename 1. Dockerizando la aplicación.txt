@@ -2,13 +2,11 @@
 1. Dockerizando las aplicaciones
 -------------------------------------------------------------------------------
 
-Compilamos el backend Spring Boot como BootJar:
+Compilaremos el backend Spring Boot como BootJar (con la tarea package de Maven o en terminal 'mvn package').
 
- - Con la tarea package de Maven
+Compilaremos la aplicación Angular:
 
-Compilamos la aplicación Angular:
-
-ng build --aot --prod --base-href /taller/
+	ng build --aot --prod --base-href /taller/
 
 Añadimos el directorio /taller/ para darle un contexto a cada App de Preving.
 
@@ -20,26 +18,30 @@ Con esto tenemos ya paquetizados tanto el frontend como el backend para poder pa
 
 Nos ubicamos en el directorio del front (donde está ubicado en Dockerfile):
 
-docker build -t taller-front .
+	docker build -t taller-front .
 
 Si deseamos hacerlo sin caché:
 
-docker build -t taller-front . --no-cache
+	docker build -t taller-front . --no-cache
 
 Levantamos el contenedor (y si el backend está corriendo debería conectarse sin probemas):
 
-docker run --rm -d --name TallerFront -p 80:80 taller-front
+	docker run --rm -d --name TallerFront -p 80:80 taller-front
 
-docker run --rm -d --name TallerFrontSSL -p 443:443 taller-front
+Descomentando el Dockerfile del Frontend podríamos desplegarlo también sobre HTTPS:
+
+	docker run --rm -d --name TallerFrontSSL -p 443:443 taller-front
 
 -------------------------------------------------------------------------------
 3. Generamos la imagen del Backend
 -------------------------------------------------------------------------------
+Realizamos el cambio de conexión, para que el bootJar se conecte al postgreSQL en Docker (igual que el pgAdmin: host.docker.internal
 
-docker build -t taller-back . --no-cache
+Generamos el package bootJar y nos ubicamos en el directorio del back:
+
+	docker build -t taller-back . --no-cache
 
 Levantamos el contenedor:
 
-docker run --rm -d --name TallerBack -p 8080:8080 taller-back
-
-docker run --rm -d --name TallerBackSSL -p 8443:8443 taller-back
+	docker run --rm -d --name TallerBack -p 8080:8080 taller-back
+	docker run --rm -d --name TallerBackSSL -p 8443:8443 taller-back
