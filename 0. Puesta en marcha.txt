@@ -2,17 +2,17 @@
 1. Descargamos PostgreSQL
 -------------------------------------------------------------------------------
 
-docker pull postgres:12
+	docker pull postgres:12
 
 Para el taller podríamos haber empleado una versión Alpine (mucho más ligera).
 
-docker pull postgres:12-alpine
+	docker pull postgres:12-alpine
 
 -------------------------------------------------------------------------------
 2. Ejecutamos contenedor PostgreSQL 12 con nombre PostgreSQL y puerto 5432
 -------------------------------------------------------------------------------
 
-docker run -d --name PostgreSQL -p 5432:5432 -e POSTGRES_PASSWORD=admin --restart=always postgres:12
+	docker run -d --name PostgreSQL -p 5432:5432 -e POSTGRES_PASSWORD=admin --restart=always postgres:12
 
 Indicamos:
 
@@ -26,7 +26,7 @@ Indicamos:
 3. Descargamos y ejecutamos el contenedor de pgAdmin sobre el puerto 2345
 -------------------------------------------------------------------------------
 
-docker run -d --rm --name pgAdmin4 -p 2345:80 -e 'PGADMIN_DEFAULT_EMAIL=lm.martin@preving.com' -e 'PGADMIN_DEFAULT_PASSWORD=admin' dpage/pgadmin4
+	docker run -d --rm --name pgAdmin4 -p 2345:80 -e 'PGADMIN_DEFAULT_EMAIL=lm.martin@preving.com' -e 'PGADMIN_DEFAULT_PASSWORD=admin' dpage/pgadmin4
 
 -------------------------------------------------------------------------------
 4. Configuramos la conexión de pgAdmin a PostgreSQL
@@ -35,18 +35,18 @@ docker run -d --rm --name pgAdmin4 -p 2345:80 -e 'PGADMIN_DEFAULT_EMAIL=lm.marti
 pgAdmin Dockerizado:
 ====================
 
-HOST host.docker.internal
-PORT 5432
-USER postgres
-PASS admin
+	HOST host.docker.internal
+	PORT 5432
+	USER postgres
+	PASS admin
 
 pgAdmin o dBeaver:
 ==================
 
-HOST localhost (o IP)
-PORT 5432
-USER postgres
-PASS admin
+	HOST localhost (o IP)
+	PORT 5432
+	USER postgres
+	PASS admin
 
 -------------------------------------------------------------------------------
 5. Lanzamos la API/Backend de Spring
@@ -58,6 +58,6 @@ Ejecutamos desde IntelliJ la aplicación: se conectará a la base datos configur
 6. Ejecutamos el front Angular
 -------------------------------------------------------------------------------
 
-ng serve
+	ng serve
 
 Ahora sobre http://localhost:4200 accedemos al Frontend y comprobamos que todo funciona correctamente.
