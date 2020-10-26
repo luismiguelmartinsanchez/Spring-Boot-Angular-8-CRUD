@@ -1,0 +1,50 @@
+version: '3.7'
+# CADA UNO DE LOS CONTENEDORES QUE VAMOS A EJECUTAR
+services:
+  # FRONTEND - ANGULAR
+  taller-front:
+    image: luismiguelmartin/taller-front
+    ports:
+      - "80:80"
+    networks:
+      - red-taller
+    depends_on:
+      - postgres12
+      - taller-back
+  # BACKEND - SPRING BOOT
+  taller-back:
+    image: luismiguelmartin/taller-back
+    ports:
+      - "8443:8443"
+    networks:
+      - red-taller
+    depends_on:
+      - postgres12
+  #  BBDD POSTGRESQL 12
+  postgres12:
+    image: postgres:12-alpine
+    ports:
+      - "5432:5432"
+    restart: always
+    networks:
+      - red-taller
+    environment:
+      POSTGRES_DB: postgres
+      POSTGRES_PASSWORD: admin
+  # PGADMIN
+  pgadmin:
+    image: dpage/pgadmin4
+    ports:
+      - "2345:80"
+    restart: always
+    networks:
+      - red-taller
+    environment:
+      PGADMIN_DEFAULT_EMAIL: lm.martin@preving.com
+      PGADMIN_DEFAULT_PASSWORD: admin
+    depends_on:
+      - postgres12
+# RED
+networks:
+  red-taller:
+  

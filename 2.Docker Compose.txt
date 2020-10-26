@@ -1,0 +1,29 @@
+-------------------------------------------------------------------------------
+1. Creando una APP Multicontenedor
+-------------------------------------------------------------------------------
+
+Para ello empleamos el fichero docker-compose.yml que nos permite ejecutar varios cotenedores a la vez, vincular dichos contenedores entre ellos, etc.
+
+-------------------------------------------------------------------------------
+COMANDOS DOCKER-COMPOSE
+-------------------------------------------------------------------------------
+
+LEVANTA/CREA TODOS LOS RECURSOS DEFINIDOS EN EL FICHERO docker-compose.yml
+
+	docker-compose up
+
+DESTRUYE TODOS LOS RECURSOS CREADOS POR EL COMANDO ANTERIOR
+
+	docker-compose down
+
+PARA (PAUSA) TODOS LOS RECURSOS Y CONTENEDORES
+
+	docker-compose stop
+
+INICIA TODOS LOS RECURSOS Y CONTENEDORES PAUSADOS
+
+	docker-compose start
+
+RECREA LOS RECURSOS SI SE HA ACTUALIZADO EL docker-compose.yml
+
+	docker-compose up --build
