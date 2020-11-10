@@ -1,4 +1,4 @@
-# Ignoramos todos los archios y directorios
+# Ignoramos todos los archivos y directorios
 **
 # Permitimos el .jar
 !/target/*.jar
